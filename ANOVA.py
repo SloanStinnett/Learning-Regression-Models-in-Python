@@ -10,10 +10,10 @@ Housedb = pd.read_csv('train.csv')
 Housedb.head()
 
 #Gather
-Deeds = Housedb.loc[Housedb['SaleType'].isin(['New'])]
+Deeds = Housedb.loc[Housedb['SaleType'].isin(['New','WD'])]
 print(Deeds.shape)
 Deeds['SaleType'].value_counts()
-Deeds['Fence'].value_counts()
+Deeds['KitchenQual'].value_counts()
 print(Deeds)
 
 House_lm = sm.ols(formula="SalePrice ~ C(SaleType)+C(Fence)",data=Deeds).fit()
