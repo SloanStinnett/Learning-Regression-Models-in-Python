@@ -17,6 +17,6 @@ Deeds['SaleType'].value_counts()
 Deeds['KitchenQual'].value_counts()
 print(Deeds)
 
-House_lm = sm.ols(formula="SalePrice ~ C(SaleType)+C(KitchenQual)",data=Deeds).fit()
+House_lm = sm.ols(formula="SalePrice ~ C(SaleType)+C(KitchenQual)+C(SaleType):C(KitchenQual)",data=Deeds).fit()
 table = sma.stats.anova_lm(House_lm,typ=1)
 print(table)
